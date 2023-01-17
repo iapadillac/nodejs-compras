@@ -18,7 +18,8 @@ const {
     putFac_compras,
     deleteFac_compras,
     getFac_compras_fcom_id,
-    getFac_compras_Proveedor
+    getFac_compras_Proveedor,
+    getFac_compras_id
 } = require("../controllers/fac_compras.controller");
 //detalle_ compras
 const { 
@@ -46,12 +47,12 @@ router.get("/mostrarfac_compras",getFac_compras)
 router.post("/fac_compras",postFac_compras)
 router.put("/fac_compras",putFac_compras)
 router.delete("/fac_compras/:name",deleteFac_compras)
-router.get("/fac_compras_fcom_id",getFac_compras_fcom_id)
-router.get("/fac_comprasPorProveedor/:name",getFac_compras_Proveedor)
+router.get("/fac_comprasId/:id", getFac_compras_id)
+router.get("/fac_comprasPorProveedor/:id",getFac_compras_Proveedor)
 
 //--------- Detalle_compras---------
 router.get("/detalle_compras",getDetalle_compras)
-router.post("/detalle_compras",postDetalle_compras)
+router.post("/nuevodetalle_compras",postDetalle_compras)
 router.delete("/detalle_compras",deleteDetalle_compras)
 router.get("/detalle_compras/:name",getDetallePorNameCabecera)
 

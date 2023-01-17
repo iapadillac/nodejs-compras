@@ -26,5 +26,6 @@ app.use(require("../routers/index"));
 app.get("/", (req, res) => {
   res.status(200).send("Bienvenidos al módulo de Facturación").end();
 });
+
 app.listen(process.env.PORT || 4000);
 console.log("server running in http://localhost:4000");

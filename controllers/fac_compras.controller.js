@@ -51,6 +51,13 @@ const getFac_compras_fcom_id = async (req, res) => {
     const response = await db.any(`select fcom_id from fac_compras where char_length(fcom_id)>(SELECT max(length(fcom_id))  FROM fac_compras)-1 ORDER BY fcom_id DESC LIMIT 1`);
     res.json(response)
 }
+
+//fact compras por Id fcom_id
+const getFac_compras_id = async (req, res) => {
+    const name = req.params.name
+    const response = await db.any(`SELECT * from fac_compras WHERE fcom_id = $1`, [name])
+    res.json(response)
+}
 // get Factura Compras por proveedor
 const getFac_compras_Proveedor = async (req, res) => {
     const name = req.params.name
@@ -67,6 +74,7 @@ module.exports = {
     putFac_compras,
     deleteFac_compras,
     getFac_compras_fcom_id,
+    getFac_compras_id,
     getFac_compras_Proveedor
 
 }

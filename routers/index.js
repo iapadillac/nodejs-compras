@@ -19,7 +19,8 @@ const {
     deleteFac_compras,
     getFac_compras_fcom_id,
     getFac_compras_Proveedor,
-    getFac_compras_id
+    getFac_compras_id,
+    getFacturabyid
 } = require("../controllers/fac_compras.controller");
 //detalle_ compras
 const { 
@@ -47,7 +48,7 @@ router.get("/mostrarfac_compras",getFac_compras)
 router.post("/fac_compras",postFac_compras)
 router.put("/fac_compras",putFac_compras)
 router.delete("/fac_compras/:name",deleteFac_compras)
-router.get("/fac_comprasId/:id", getFac_compras_id)
+router.get("/fac_comprasId/:id", getFacturabyid)
 router.get("/fac_comprasPorProveedor/:id",getFac_compras_Proveedor)
 
 //--------- Detalle_compras---------

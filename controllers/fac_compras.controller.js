@@ -53,10 +53,24 @@ const getFac_compras_fcom_id = async (req, res) => {
 }
 
 //fact compras por Id fcom_id
-const getFac_compras_id = async (req, res) => {
+/*const getFac_compras_id = async (req, res) => {
     const name = req.params.name
-    const response = await db.any(`SELECT * from fac_compras WHERE fcom_id = $1`, [name])
+    const response = await db.any(`select * from fac_compras WHERE fcom_id = $1`, [name])
     res.json(response)
+}
+*/
+
+const getFacturabyid = async (req, res) => {
+    try {
+        const { id } = req.params
+        const facturas = await db.any(`SELECT * FROM fac_compras WHERE fcom_id = $1;`, [id]);
+        res.json(facturas)
+    } catch (error) {
+        console.log(error)
+        res.json({
+            message: 'Valores incorrectos'
+        })
+    }
 }
 // get Factura Compras por proveedor
 const getFac_compras_Proveedor = async (req, res) => {
@@ -74,7 +88,7 @@ module.exports = {
     putFac_compras,
     deleteFac_compras,
     getFac_compras_fcom_id,
-    getFac_compras_id,
+    getFacturabyid,
     getFac_compras_Proveedor
 
 }

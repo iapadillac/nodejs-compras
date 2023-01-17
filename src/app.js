@@ -5,3 +5,12 @@ app.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
+const { expressCspHeader, INLINE, NONE, SELF } = require('express-csp-header');
+const app = express();
+// other app.use() options ...
+app.use(expressCspHeader({ 
+    policies: { 
+        'default-src': [expressCspHeader.NONE], 
+        'img-src': [expressCspHeader.SELF], 
+    } 
+})); 

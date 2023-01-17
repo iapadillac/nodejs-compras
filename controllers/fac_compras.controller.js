@@ -67,16 +67,11 @@ const getFac_compras_Proveedor = async (req, res) => {
 }
 
 const getFacturabyid = async (req, res) => {
-    try {
+    
         const { id } = req.params
         const facturas = await db.any(`SELECT * FROM fac_compras WHERE fcom_id = $1;`, [id]);
         res.json(facturas)
-    } catch (error) {
-        console.log(error)
-        res.json({
-            message: 'Valores incorrectos'
-        })
-    }
+
 }
 
 

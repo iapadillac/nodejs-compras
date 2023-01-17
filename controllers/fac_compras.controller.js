@@ -61,8 +61,8 @@ const getFac_compras_fcom_id = async (req, res) => {
 */
 // get Factura Compras por proveedor
 const getFac_compras_Proveedor = async (req, res) => {
-    const name = req.params.name
-    const response = await db.any(`SELECT * from fac_compras WHERE pro_cedula_ruc = $1`, [name])
+    const { id }  = req.params
+    const response = await db.any(`SELECT * from fac_compras WHERE pro_cedula_ruc = $1;`, [id]);
     res.json(response)
 }
 

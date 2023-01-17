@@ -59,6 +59,12 @@ const getFac_compras_fcom_id = async (req, res) => {
     res.json(response)
 }
 */
+// get Factura Compras por proveedor
+const getFac_compras_Proveedor = async (req, res) => {
+    const name = req.params.name
+    const response = await db.any(`SELECT * from fac_compras WHERE pro_cedula_ruc = $1`, [name])
+    res.json(response)
+}
 
 const getFacturabyid = async (req, res) => {
     try {
@@ -72,12 +78,7 @@ const getFacturabyid = async (req, res) => {
         })
     }
 }
-// get Factura Compras por proveedor
-const getFac_compras_Proveedor = async (req, res) => {
-    const name = req.params.name
-    const response = await db.any(`SELECT * from fac_compras WHERE pro_cedula_ruc = $1`, [name])
-    res.json(response)
-}
+
 
 
 

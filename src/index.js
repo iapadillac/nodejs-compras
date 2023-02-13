@@ -6,8 +6,8 @@ const cors = require('cors');
 const bodyParser = require("body-parser");
 
 //milddlewears
-const whitelist= ['https://appfrontendcompras.herokuapp.com']
-app.use(cors({origin:whitelist}))
+//const whitelist= ['https://appfrontendcompras.herokuapp.com']
+app.use(cors())
 
 app.use(bodyParser.json());
 app.use(

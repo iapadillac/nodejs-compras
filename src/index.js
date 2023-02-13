@@ -6,12 +6,8 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 //milddlewears
-app.use(
-  cors({
-    origin: "https://appfrontendcompras.herokuapp.com",
-    methods: ["GET", "POST", "OPTIONS", "PUT", "DELETE"],
-  })
-);
+app.use(cors())
+
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({

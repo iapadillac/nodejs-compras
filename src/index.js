@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 app.use(
   cors({
     origin: "https://appfrontendcompras.herokuapp.com",
+    methods: ["GET", "POST", "OPTIONS", "PUT", "DELETE"],
   })
 );
 app.use(bodyParser.json());

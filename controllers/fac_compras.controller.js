@@ -8,6 +8,14 @@ const getFac_compras = async (req, res) => {
     res.json(response)
 }
 
+// get Factura Compras
+const getFac_comprasid = async (req, res) => {
+
+    const response = await db.any('select fcom_id from fac_compras order by 1')
+
+    res.json(response)
+}
+
 // CREAR Fac_compras
 const postFac_compras = async (req, res) => {
     const { fcom_id, pro_cedula_ruc, fcom_fecha, fcom_credito_contado, fcom_fechavencimiento, fcom_total } = req.body
@@ -80,6 +88,7 @@ const getFacturabyid = async (req, res) => {
 
 module.exports = {
     getFac_compras,
+    getFac_comprasid,
     postFac_compras,
     putFac_compras,
     deleteFac_compras,

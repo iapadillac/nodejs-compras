@@ -5,6 +5,8 @@ const getProveedor = async (req, res) => {
     const response = await db.any(`select * from proveedor   order by 1`)
     res.json(response)
 }
+
+
 //get por nombre
 const getProveedorByName = async (req, res) => {
     const name = req.params.name
